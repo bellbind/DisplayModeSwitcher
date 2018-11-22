@@ -15,6 +15,8 @@ id="$namespace.$name"
 #NOTE: Developer ID Application certificate name in "Keychain Access"
 #cert="Developer ID Application: ..."
 
+[ -e config.sh ] && source config.sh
+
 svg=icon.svg
 swiftopts=""
 pngopts="-fuzz 15% -transparent white"
@@ -42,6 +44,7 @@ iconutil -c icns "$iconset"
 
 # build app bundle
 app="$name.app"
+rm -rf "$app"
 mkdir -p "$app/Contents/MacOS"
 mkdir -p "$app/Contents/Resources"
 sed -e "s/%name%/$name/g;s/%id%/$id/g;s/%version%/$version/g" Info.plist.xml > "$app/Contents/Info.plist"
@@ -61,5 +64,6 @@ fi
 mkdir -p dmg/
 cp -a "$app" dmg/
 ( cd dmg ; ln -s /Applications/ )
+rm -f "$name.dmg"
 hdiutil create -srcfolder dmg -volname "$name" "$name.dmg"
 rm -rf dmg/
