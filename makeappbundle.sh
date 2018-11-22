@@ -18,8 +18,8 @@ id="$namespace.$name"
 [ -e config.sh ] && source config.sh
 
 svg=icon.svg
-swiftopts=""
-pngopts="-fuzz 15% -transparent white"
+swiftopts="-import-objc-header cg-hidden.h"
+pngopts="-fuzz 8% -transparent white"
 
 # build bin
 
