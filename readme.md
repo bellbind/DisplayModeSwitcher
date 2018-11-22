@@ -15,7 +15,7 @@ $ ./DisplayModeSwitcher.swift &
 B. Run a compiled binary with swiftc:
 
 ```sh
-$ swiftc DisplayModeSwitcher.swift
+$ swiftc -import-objc-header cg-hidden.h DisplayModeSwitcher.swift
 $ ./DisplayModeSwitcher &
 ```
 
