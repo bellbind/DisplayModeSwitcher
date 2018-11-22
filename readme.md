@@ -16,7 +16,7 @@ B. Run a compiled binary with swiftc:
 
 ```sh
 $ swiftc DisplayModeSwitcher.swift
-$ ./DisplayModeSwitcher
+$ ./DisplayModeSwitcher &
 ```
 
 C. Build app bundle and dmg acrchive with script:
@@ -25,6 +25,10 @@ C. Build app bundle and dmg acrchive with script:
 $ ./makeappbundle.sh
 $ open DisplayModeSwitcher.app
 ```
+
+Compiled apps are attached on each [releases](../../releases/).
+
 ## License
 
 - https://opensource.org/licenses/isc-license.txt
+
