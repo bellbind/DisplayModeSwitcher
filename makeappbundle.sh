@@ -9,7 +9,7 @@ cd $(dirname $0)
 # parameters
 namespace=bellbind
 name=DisplayModeSwitcher
-version=1.0.0
+version=1.0.1
 id="$namespace.$name"
 
 #NOTE: Developer ID Application certificate name in "Keychain Access"
