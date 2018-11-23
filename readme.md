@@ -26,7 +26,12 @@ $ ./makeappbundle.sh
 $ open DisplayModeSwitcher.app
 ```
 
-Compiled apps are attached on each [releases](../../releases/).
+To launch from Launchpad, copy it into `~/Apllications/` as:
+
+```sh
+$ cp -a DisplayModeSwitcher.app ~/Applications/
+```
+
 
 ## License
 
