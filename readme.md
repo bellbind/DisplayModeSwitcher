@@ -26,7 +26,7 @@ $ ./makeappbundle.sh
 $ open DisplayModeSwitcher.app
 ```
 
-To launch from Launchpad, copy it into `~/Apllications/` as:
+To launch from Launchpad, copy it into `~/Applications/` as:
 
 ```sh
 $ cp -a DisplayModeSwitcher.app ~/Applications/
