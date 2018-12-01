@@ -4,6 +4,18 @@ Tiny statusbar utility for switching resolutions(display-mode) on macos
 
 ![screenshot](screenshot-dms.png)
 
+## Install with homebrew
+
+Install with the [bellbind/displaymodeswitcher tap](https://github.com/bellbind/homebrew-displaymodeswitcher) as:
+
+```sh
+$ brew tap bellbind/displaymodeswitcher
+$ brew install --no-sandbox displaymodeswitcher
+$ ln -sf /usr/local/opt/displaymodeswitcher/DisplayModeSwitcher.app ~/Applications/DisplayModeSwitcher.app
+```
+
+You can launch the `DisplayModeSwitcher` app from Launchpad.
+
 ## Howto
 
 A. This is a single swift script with shebang:
