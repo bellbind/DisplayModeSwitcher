@@ -9,7 +9,7 @@ cd $(dirname $0)
 # parameters
 namespace=bellbind
 name=DisplayModeSwitcher
-version=1.0.1
+version=1.0.2
 id="$namespace.$name"
 
 #NOTE: Developer ID Application certificate name in "Keychain Access"
@@ -29,7 +29,7 @@ swiftc $swiftopts "$name.swift"
 iconset="$name.iconset"
 png="$svg.png"
 mkdir -p "$iconset"
-qlmanage -t -s 1024 -o . "$svg"
+qlmanage -x -t -s 1024 -o . "$svg"
 convert "$png" $pngopts -resize 16x16 "$iconset/icon_16x16.png"
 convert "$png" $pngopts -resize 32x32 "$iconset/icon_16x16@2x.png"
 convert "$png" $pngopts -resize 32x32 "$iconset/icon_32x32.png"
