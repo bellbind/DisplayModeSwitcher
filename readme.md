@@ -10,8 +10,8 @@ Install with the [bellbind/displaymodeswitcher tap](https://github.com/bellbind/
 
 ```sh
 $ brew tap bellbind/displaymodeswitcher
-$ brew install --no-sandbox displaymodeswitcher
-$ ln -sf /usr/local/opt/displaymodeswitcher/DisplayModeSwitcher.app ~/Applications/DisplayModeSwitcher.app
+$ brew install displaymodeswitcher
+$ ln -sf /usr/local/opt/displaymodeswitcher/DisplayModeSwitcher.app ~/Applications/
 ```
 
 You can launch the `DisplayModeSwitcher` app from Launchpad.
@@ -34,6 +34,7 @@ $ ./DisplayModeSwitcher &
 C. Build app bundle and dmg acrchive with script:
 
 ```sh
+$ brew install imagemagick webkit2png
 $ ./makeappbundle.sh
 $ open DisplayModeSwitcher.app
 ```
