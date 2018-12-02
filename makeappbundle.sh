@@ -9,7 +9,8 @@ cd $(dirname $0)
 # parameters
 namespace=bellbind
 name=DisplayModeSwitcher
-version=1.0.2
+cmd=displaymode
+version=1.1.0
 id="$namespace.$name"
 
 #NOTE: Developer ID Application certificate name in "Keychain Access"
@@ -24,6 +25,7 @@ pngopts="-fuzz 8% -transparent white"
 # build bin
 
 swiftc $swiftopts "$name.swift"
+swiftc $swiftopts "$cmd.swift"
 
 # build icns from svg
 iconset="$name.iconset"
@@ -49,6 +51,7 @@ mkdir -p "$app/Contents/MacOS"
 mkdir -p "$app/Contents/Resources"
 sed -e "s/%name%/$name/g;s/%id%/$id/g;s/%version%/$version/g" Info.plist.xml > "$app/Contents/Info.plist"
 cp "$name" "$app/Contents/MacOS"
+cp "$cmd" "$app/Contents/MacOS"
 cp "$name.icns" "$app/Contents/Resources"
 
 # cleanup
