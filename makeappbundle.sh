@@ -4,13 +4,17 @@ if [ "$(which convert)" == "" ] ; then
     echo "[Abort] Please install imagemagick"
     exit 1
 fi
+if [ "$(which webkit2png)" == "" ] ; then
+    echo "[Abort] Please install webkit2png"
+    exit 1
+fi
 cd $(dirname $0)
 
 # parameters
 namespace=bellbind
 name=DisplayModeSwitcher
 cmd=displaymode
-version=1.1.0
+version=1.1.1
 id="$namespace.$name"
 
 #NOTE: Developer ID Application certificate name in "Keychain Access"
@@ -20,7 +24,7 @@ id="$namespace.$name"
 
 svg=icon.svg
 swiftopts="-import-objc-header cg-hidden.h"
-pngopts="-fuzz 8% -transparent white"
+pngopts=""
 
 # build bin
 
@@ -31,7 +35,8 @@ swiftc $swiftopts "$cmd.swift"
 iconset="$name.iconset"
 png="$svg.png"
 mkdir -p "$iconset"
-qlmanage -x -t -s 1024 -o . "$svg"
+webkit2png -F -W 1024 -H 1024 --transparent -o "$svg" "$svg"
+mv "$svg-full.png" "$png"
 convert "$png" $pngopts -resize 16x16 "$iconset/icon_16x16.png"
 convert "$png" $pngopts -resize 32x32 "$iconset/icon_16x16@2x.png"
 convert "$png" $pngopts -resize 32x32 "$iconset/icon_32x32.png"
