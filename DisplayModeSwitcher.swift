@@ -15,9 +15,8 @@ func resolution(_ id: String, _ w: String, _ h: String, _ mark: String) -> NSAtt
     return title
 }
 
-class Main: NSObject, NSMenuDelegate {
-    func menuWillOpen(_ menu: NSMenu) {
-        menu.removeAllItems()
+class Main: NSObject {
+    func buildMenu(_ menu: NSMenu) {
         let display = CGMainDisplayID()
         let modes = CGDisplayCopyAllDisplayModes(display, nil)
         guard let dmodes = modes as? [CGDisplayMode] else {return}
@@ -41,7 +40,6 @@ class Main: NSObject, NSMenuDelegate {
         let terminate = #selector(NSApplication.shared.terminate)
         menu.addItem(withTitle: "Quit", action: terminate, keyEquivalent: "")
     }
-
     @objc func switchMode(_ sender: NSMenuItem) {
         let display = CGMainDisplayID()
         let modes = CGDisplayCopyAllDisplayModes(display, nil)
@@ -53,13 +51,18 @@ class Main: NSObject, NSMenuDelegate {
         CGCompleteDisplayConfiguration(config.pointee, CGConfigureOption.permanently)
     }
 }
+extension Main: NSMenuDelegate {
+    func menuWillOpen(_ menu: NSMenu) {
+        menu.removeAllItems()
+        self.buildMenu(menu)
+    }
+}
 let main = Main()
 
 NSApplication.loadApplication()
 let menu = NSMenu()
 menu.delegate = main
 let statusItem = NSStatusBar.system.statusItem(withLength: -1)
-//statusItem.button?.title = "\u{1F5A5}"
 statusItem.button?.title = "\u{1F4BB}"
 statusItem.menu = menu
 NSApplication.shared.run()
