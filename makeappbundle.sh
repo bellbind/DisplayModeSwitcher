@@ -14,7 +14,7 @@ cd $(dirname $0)
 namespace=bellbind
 name=DisplayModeSwitcher
 cmd=displaymode
-version=1.1.1
+version=1.1.2
 id="$namespace.$name"
 
 #NOTE: Developer ID Application certificate name in "Keychain Access"
